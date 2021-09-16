@@ -1,0 +1,14 @@
+# DockerFile Image and Container
+FROM python:3.9
+
+RUN mkdir /python/src/AuctioneerAndBidder
+ADD . /python/src/AuctioneerAndBidder
+
+WORKDIR /python/src/AuctioneerAndBidder
+
+RUN  pip3 install tornado
+
+RUN git clone https://github.com/amokr/AuctioneerAndBidder.git
+# https://github.com/amokr/AuctioneerAndBidder.git
+
+CMD ["python3","./runservices.py"]
